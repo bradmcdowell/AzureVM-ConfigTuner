@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-RESOURCE_GROUP="<INSERT_Azure_RG_HERE"
+RESOURCE_GROUP="<INSERT_Azure_RG_HERE>"
 NEW_SKU="Standard_LRS" # Use Standard_LRS for Standard HDD or StandardSSD_LRS for Standard SSD
 UTC_SHUTDOWN_TIME="09:00"
 
