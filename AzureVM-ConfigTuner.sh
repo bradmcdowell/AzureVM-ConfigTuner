@@ -27,13 +27,11 @@ if [[ "$autoshutanswer" == [Yy] ]]; then
 for vm in $VM_LIST
 do
   echo "$vm"
-    az vm auto-shutdown --resource-group $RESOURCE_GROUP --name $vm --on --time $UTC_SHUTDOWN_TIME
+    az vm auto-shutdown --resource-group $RESOURCE_GROUP --name $vm --on --time $UTC_SHUTDOWN_TIME --output none
 done
 else
     echo "Skipping Auto-Shutdown configuration."
 fi
-
-
 
 # Change disk type
 if [[ "$diskanswer" == [Yy] ]]; then
@@ -52,7 +50,7 @@ for VM_NAME in $VM_LIST; do
 
     # Change the OS disk SKU
     if [ ! -z "$OS_DISK_ID" ]; then
-        az disk update --sku $NEW_SKU --ids $OS_DISK_ID
+        az disk update --sku $NEW_SKU --ids $OS_DISK_ID --output none
         echo "Updated OS disk for VM: $VM_NAME to $NEW_SKU"
     fi
 
@@ -62,7 +60,7 @@ for VM_NAME in $VM_LIST; do
     # Change the data disk SKUs
     for DISK_ID in $DATA_DISK_IDS; do
         if [ ! -z "$DISK_ID" ]; then
-            az disk update --sku $NEW_SKU --ids $DISK_ID
+            az disk update --sku $NEW_SKU --ids $DISK_ID --output none
             echo "Updated data disk $DISK_ID for VM: $VM_NAME to $NEW_SKU"
         fi
     done
