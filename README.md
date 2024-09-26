@@ -22,3 +22,9 @@ nano ./AzureVM-ConfigTuner.sh
 ```
 chmod +x ./AzureVM-ConfigTuner.sh
 ```
+
+#### Run the script
+
+```
+./AzureVM-ConfigTuner.sh
+```
